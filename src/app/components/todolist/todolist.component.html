@@ -1,0 +1,29 @@
+<mat-card>
+  <div [ngClass]="theme" class="container">
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile class="mat-display-2">Todo List</mat-grid-tile>
+      <mat-grid-tile
+        ><button mat-icon-button color="accent" (click)="changeTheme()">
+          <mat-icon>{{ themeIcon }}</mat-icon>
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-list role="list">
+      <mat-list-item
+      class="todo-item"
+        role="listitem"
+        *ngFor="let todo of todos"
+      >
+        <span>{{ this.todo.title }}</span>
+        <div class="todo-buttons">
+          <button mat-icon-button color="accent">
+            <mat-icon>done</mat-icon>
+          </button>
+          <button mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div></mat-card
+>
