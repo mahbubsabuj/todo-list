@@ -14,11 +14,12 @@ export class TodolistComponent implements OnInit {
   value = '';
   todos: Todo[] = [
     new Todo(Guid.create(), 'Do your homework', false),
-    new Todo(Guid.create(), 'Solve some problems', false),
+    new Todo(Guid.create(), 'Solve some problem', false),
   ];
   constructor() {}
 
   ngOnInit(): void {}
+  
   changeTheme(): void {
     if (this.theme === 'my-dark-theme') {
       this.theme = 'my-light-theme';
