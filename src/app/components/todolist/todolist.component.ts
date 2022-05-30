@@ -29,9 +29,11 @@ export class TodolistComponent implements OnInit {
     }
   }
   addTodo(form: NgForm) {
-    const todo: Todo = new Todo(Guid.create(), form.value.title, false);
-    this.todos.push(todo);
-    form.reset();
+    if (form.value.title.length !== 0) {
+      const todo: Todo = new Todo(Guid.create(), form.value.title, false);
+      this.todos.push(todo);
+      form.reset();
+    }
   }
   deleteTodo(id: Guid) {
     this.todos = this.todos.filter((entry: Todo) => entry.id !== id);
