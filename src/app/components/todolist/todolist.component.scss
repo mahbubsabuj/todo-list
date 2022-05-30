@@ -1,23 +1,37 @@
 .text-color {
-    color: black
+  color: black;
 }
 
 .container {
-    width: 400px;
-    margin: 0 auto;
+  width: 400px;
+  margin: 0 auto;
 }
 
 .todo-items {
-    padding: 15px;
+  padding: 15px;
 }
 
 .todo-item {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 :host ::ng-deep .mat-list-item-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-input {
+  width: 300px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid red;
+}
+
+.todo-heading {
     display: flex;
     justify-content: space-between;
 }
-

@@ -11,16 +11,18 @@ import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
-
-
-
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 import { TodolistComponent } from './components/todolist/todolist.component';
+import { FilterPipe } from './Pipes/filter.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodolistComponent
+    TodolistComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,10 @@ import { TodolistComponent } from './components/todolist/todolist.component';
     MatListModule,
     MatSlideToggleModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

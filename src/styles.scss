@@ -11,6 +11,7 @@ $light-theme: mat.define-light-theme(
     color: (
       primary: $light-primary,
       accent: $light-accent,
+      background: 'white',
     ),
   )
 );
@@ -23,6 +24,7 @@ $dark-theme: mat.define-dark-theme(
     color: (
       primary: $dark-primary,
       accent: $dark-accent,
+      background: 'black',
     ),
   )
 );

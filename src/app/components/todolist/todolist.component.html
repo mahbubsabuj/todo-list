@@ -1,6 +1,6 @@
 <mat-card>
   <div [ngClass]="theme" class="container">
-    <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-list class="todo-heading" cols="2" rowHeight="2:1">
       <mat-grid-tile class="mat-display-2">Todo List</mat-grid-tile>
       <mat-grid-tile
         ><button mat-icon-button color="accent" (click)="changeTheme()">
@@ -8,21 +8,31 @@
         </button>
       </mat-grid-tile>
     </mat-grid-list>
+    <form #value="ngForm" (ngSubmit) = "addTodo(value)">
+      <div style="padding: 10px">
+        <input class="todo-input" type="text" id="title" name="title" ngModel/>
+        <button mat-icon-button color="accent">
+          <mat-icon style="font-size: 40px;">task_alt</mat-icon>
+        </button>
+      </div>
+    </form>
     <mat-list role="list">
       <mat-list-item
-      class="todo-list-item"
+        class="todo-list-item"
         role="listitem"
-        *ngFor="let todo of todos"
+        *ngFor="let todo of todos" 
       >
-        <span class="todo-title">{{ this.todo.title }}</span>
+      <ng-container>
+        <span class="todo-title" [ngStyle]="this.todo.isComplete ? {'text-decoration': 'line-through'} : null">{{ this.todo.title }}</span>
         <div class="todo-buttons">
           <button mat-icon-button color="accent">
-            <mat-icon>done</mat-icon>
+            <mat-icon (click)="onCompleteTodo(this.todo.id)">done</mat-icon>
           </button>
-          <button mat-icon-button color="warn">
+          <button mat-icon-button color="warn" (click) ="deleteTodo(this.todo.id)">
             <mat-icon>delete</mat-icon>
           </button>
-        </div>
+      </div>
+    </ng-container>
       </mat-list-item>
     </mat-list>
   </div></mat-card
