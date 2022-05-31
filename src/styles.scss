@@ -33,12 +33,14 @@ $dark-theme: mat.define-dark-theme(
 .my-dark-theme {
   @include mat.core-theme($dark-theme);
   @include mat.button-theme($dark-theme);
+  // background-color: white;
 }
 // Apply the light theme only when the `.my-light-theme` CSS class is applied
 // to an ancestor element of the components (such as `body`).
 .my-light-theme {
   @include mat.core-color($light-theme);
   @include mat.button-color($light-theme);
+  // background-color: black;
 }
-// html, body { height: 100%; }
-// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
