@@ -1,6 +1,6 @@
 # Todo List
 
-A simple Todo List app using built with Angular. 
+A simple Todo List app built with Angular. 
 
 **Features**
 <ul>
