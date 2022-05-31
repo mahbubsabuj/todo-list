@@ -18,8 +18,13 @@ export class TodolistComponent implements OnInit {
   ];
   constructor() {}
 
-  ngOnInit(): void {}
-  
+  ngOnInit(): void {
+    const data: string | null = localStorage.getItem('todos');
+    if (data) {
+      this.todos = JSON.parse(data)
+    }
+  }
+
   changeTheme(): void {
     if (this.theme === 'my-dark-theme') {
       this.theme = 'my-light-theme';
@@ -29,18 +34,24 @@ export class TodolistComponent implements OnInit {
       this.themeIcon = 'light_mode';
     }
   }
-  addTodo(form: NgForm) {
-    if (form.value.title.length !== 0) {
+  updateLocalStorage(): void {
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+  }
+  addTodo(form: NgForm): void {
+    if (form.value.title) {
       const todo: Todo = new Todo(Guid.create(), form.value.title, false);
       this.todos.push(todo);
+      this.updateLocalStorage();
       form.reset();
     }
   }
-  deleteTodo(id: Guid) {
+  deleteTodo(id: Guid): void {
     this.todos = this.todos.filter((entry: Todo) => entry.id !== id);
+    this.updateLocalStorage();
   }
-  onCompleteTodo(id: Guid) {
+  onCompleteTodo(id: Guid): void {
     let todo: Todo = this.todos.filter((entry: Todo) => entry.id === id)[0];
     todo.isComplete = true;
+    this.updateLocalStorage();
   }
 }
